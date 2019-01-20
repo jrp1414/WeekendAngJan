@@ -1,3 +1,71 @@
-<div>Products Component Added.....</div>
+<!-- <div>Products Component Added.....</div> -->
+<div class="jumbotron">
+    <h2>{{Title}}</h2>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        Number Type String Interpolation example
+    </div>
+    <div class="col-md-3">
+        {{20-3+5/2}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        Boolean Type String Interpolation example
+    </div>
+    <div class="col-md-3">
+        {{showData}}
+    </div>
+</div>
 
-<app-product></app-product>
+<div class="row">
+    <div class="col-md-3">
+        Get data from function to show String Interpolation example
+    </div>
+    <div class="col-md-3">
+        {{getData()}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        Get data from function to show String Interpolation example
+    </div>
+    <div class="col-md-3">
+        {{'Result would be displayed here, Result is : ' + getData()}}
+    </div>
+</div>
+<!-- <div class="row">
+    <div class="col-md-3">
+        Product Name
+    </div>
+    <div class="col-md-3">
+        <input type="text" class="form-control" (input)="onProductNameChanged($event)" />
+    </div>
+</div> -->
+<div class="row">
+    <div class="col-md-3">
+        Product Name
+    </div>
+    <div class="col-md-3">
+        <input type="text" class="form-control" [(ngModel)]="productName" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        Property Binding example
+    </div>
+    <div class="col-md-3">
+        <button [disabled]="!showData" (click)="onProductAdded()" class="btn btn-primary">Add Product</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        Event Binding example
+    </div>
+    <div class="col-md-3">
+        {{productStatus}} -- and Product Name is : {{productName}}
+    </div>
+</div>
+
+<!-- <app-product></app-product> -->
