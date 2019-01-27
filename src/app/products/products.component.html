@@ -59,12 +59,20 @@
         <button [disabled]="!showData" (click)="onProductAdded()" class="btn btn-primary">Add Product</button>
     </div>
 </div>
-<div class="row">
+<!-- <div class="row">
     <div class="col-md-3">
         Event Binding example
     </div>
     <div class="col-md-3">
         {{productStatus}} -- and Product Name is : {{productName}}
+    </div>
+</div> -->
+<div *ngIf="productName && productName.length>2" class="row">
+    <div class="col-md-3">
+        ngIf example
+    </div>
+    <div class="col-md-3">
+        Product Name is : {{productName}}
     </div>
 </div>
 
