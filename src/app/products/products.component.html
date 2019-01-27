@@ -1,79 +1,49 @@
-<!-- <div>Products Component Added.....</div> -->
-<div class="jumbotron">
-    <h2>{{Title}}</h2>
-</div>
-<div class="row">
-    <div class="col-md-3">
-        Number Type String Interpolation example
+<div class="container">
+    <div class="jumbotron">
+        <h2>{{Title}}</h2>
     </div>
-    <div class="col-md-3">
-        {{20-3+5/2}}
+    <div class="row">
+        <div class="col-md-3">Filter By</div>
+        <div class="col-md-3"><input [(ngModel)]="filterBy" class="form-control"/></div>
     </div>
-</div>
-<div class="row">
-    <div class="col-md-3">
-        Boolean Type String Interpolation example
+    <div *ngIf="(filterBy && filterBy.length > 2) else noFilter" class="row">
+        <div class="col-md-3">Showing Products with name : </div>
+        <div class="col-md-3">{{filterBy}}</div>
     </div>
-    <div class="col-md-3">
-        {{showData}}
-    </div>
-</div>
+    <!-- <div *ngIf="!filterBy || filterBy.length < 3" class="row">
+            <div class="alert alert-danger">No Filter Critera Ented</div>
+    </div> -->
 
-<div class="row">
-    <div class="col-md-3">
-        Get data from function to show String Interpolation example
+    <ng-template #noFilter>
+        <div class="row">
+            <div class="alert alert-danger">No Filter Critera Ented</div>
+        </div>
+    </ng-template>
+    <div class="row">
+        <div class="col-md-3">
+            <button class="btn btn-primary" (click)="ToggleImages()">{{toggleImage?"Hide":"Show"}} Images</button>
+        </div>        
     </div>
-    <div class="col-md-3">
-        {{getData()}}
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-3">
-        Get data from function to show String Interpolation example
-    </div>
-    <div class="col-md-3">
-        {{'Result would be displayed here, Result is : ' + getData()}}
-    </div>
-</div>
-<!-- <div class="row">
-    <div class="col-md-3">
-        Product Name
-    </div>
-    <div class="col-md-3">
-        <input type="text" class="form-control" (input)="onProductNameChanged($event)" />
-    </div>
-</div> -->
-<div class="row">
-    <div class="col-md-3">
-        Product Name
-    </div>
-    <div class="col-md-3">
-        <input type="text" class="form-control" [(ngModel)]="productName" />
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-3">
-        Property Binding example
-    </div>
-    <div class="col-md-3">
-        <button [disabled]="!showData" (click)="onProductAdded()" class="btn btn-primary">Add Product</button>
+    <div *ngIf="products && products.length>0" class="row">
+        <table class="table table-border">
+            <thead>
+                <th>Image</th>
+                <th>Product Id</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Rating</th>
+            </thead>
+            <tbody>
+                    <tr [ngStyle]='{"color":getColor(product)}' *ngFor="let product of products">
+                <!-- <tr [ngStyle]='{backgroundColor:dangerColor}' *ngFor="let product of products"> -->
+                    <!-- <td><img *ngIf="toggleImage" [ngStyle]='{width:imageWidth,margin:imageMargin}' [src]="product.image" title="product.productName"/></td> -->
+                    <td><img *ngIf="toggleImage" [ngStyle]='{width:imageWidth,margin:imageMargin}' src={{product.image}} [title]="product.productName"/></td>
+                    <td>{{product.productId}}</td>
+                    <td>{{product.productName}}</td>
+                    <td>$ {{product.price}}</td>
+                    <td>{{product.rating}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
-<!-- <div class="row">
-    <div class="col-md-3">
-        Event Binding example
-    </div>
-    <div class="col-md-3">
-        {{productStatus}} -- and Product Name is : {{productName}}
-    </div>
-</div> -->
-<div *ngIf="productName && productName.length>2" class="row">
-    <div class="col-md-3">
-        ngIf example
-    </div>
-    <div class="col-md-3">
-        Product Name is : {{productName}}
-    </div>
-</div>
-
-<!-- <app-product></app-product> -->
