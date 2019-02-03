@@ -1,0 +1,43 @@
+<div class="well">
+    <h2>{{product?.productName}}</h2>
+    <div class="row">
+            <div class="col-md-2">Product Id</div>
+            <div class="col-md-2">{{product?.productId}}</div>
+        </div>
+    <div class="row">
+        <div class="col-md-2">Product Code</div>
+        <div class="col-md-2">{{product?.productCode}}</div>
+    </div>
+    <div [ngSwitch]="product?.productConfig?.type" class="row">
+        <div class="col-md-2">Price</div>
+        <div class="col-md-2">{{product?.price}}</div>
+        <span *ngSwitchCase="'Computer'">Very Good</span>
+        <span *ngSwitchCase="'Furniture'">Good</span>
+        <span *ngSwitchDefault>Bad</span>
+        <!-- <div class="col-md-2" [hidden]="product?.price < 2000" >Too High</div> -->
+    </div>
+    <div class="row">
+        <div class="col-md-2">Rating</div>
+        <div class="col-md-2">{{product?.rating}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">Type</div>
+        <div class="col-md-2">{{product?.productConfig.type}}</div>
+    </div>
+    <!-- <div class="row" [class.red]="product?.productConfig.mfgYear<2016" [class.bold]="product?.productConfig.mfgYear<2016" > -->
+    <!-- <div class="row" [ngClass]="{'red':product?.productConfig.mfgYear<2016,'bold':product?.productConfig.mfgYear<2016}" > -->
+    <!-- <div class="row" [ngClass]="getClass()" > -->
+    <!-- <div class="row" [style.color]="product?.productConfig.mfgYear<2016 ?'red':'green'" > -->
+            <div class="row" style="background-color: aqua;" [ngStyle]="getStyles()" >
+        <div class="col-md-2">Manufacturing Year</div>
+        <div class="col-md-2">{{product?.productConfig.mfgYear}}</div>
+    </div>
+    <!-- <div class="row">
+            <div class="col-md-2">
+                <img style="width: 50px;height: 50px" 
+                     [src]="product?.image"/></div>
+        </div>                         -->
+
+        <!-- <button class="btn btn-primary" (click)="ButtonClicked()" >Click Child</button> -->
+<p>Test Para of Child</p>
+    </div>
