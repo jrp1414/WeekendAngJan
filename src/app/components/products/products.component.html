@@ -1,0 +1,26 @@
+<div class="panel">
+        <div class="panel-heading">{{pageTitle}}</div>
+        <ng-content></ng-content>
+        <div>
+            <button (click)="toggleImage()" class="btn btn-primary">{{showImage?"Hide":"Show" }} Images</button>
+        </div>
+        <div class="row">
+            <div class="col-md-2">Enter Filter Text</div>
+            <div class="col-md-2"><input type="text" class="form-control" [(ngModel)]="filterBy" /></div>
+            <!-- <div class="col-md-2"><input id="txtFilter" type="text" class="form-control" #filterBy /></div> -->
+            <div class="col-md-2" *ngIf="filterBy; else filterText"><span class="alert alert-info">{{filterBy | uppercase | lowercase }}</span></div>
+            <ng-template #filterText>
+                <div class="col-md-2"><span class="alert alert-danger">Enter Some Filter Text</span></div>
+            </ng-template>
+
+            <!-- <button (click)="SomeMethodCall(filterBy)" class="btn btn-primary">Some Button</button> -->
+            <button (click)="SomeMethodCall()" class="btn btn-primary">Some Button</button>
+        </div>
+        <div class="panel-body">
+            <div class="row" >                
+                    <app-product-details *ngFor="let prod of products | filter:filterBy" class="col-md-6" [productDetails]="prod" (OnProductDetailsClicked)="ParentHandler($event)">
+                        <button class="btn btn-danger" (click)="RemoveProduct(i)">Remove</button>
+                    </app-product-details>                    
+            </div>            
+        </div> 
+    </div>

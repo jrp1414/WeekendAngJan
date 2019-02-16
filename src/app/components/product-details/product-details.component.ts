@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
-import { Product } from '../Model/product';
+import { Product } from "../product";
 
 @Component({
   selector: 'app-product-details',
@@ -11,7 +11,7 @@ export class ProductDetailsComponent implements OnInit {
   @Input('productDetails') product:Product;
   @Output() OnProductDetailsClicked:EventEmitter<string> = new EventEmitter<string>();
   
-   
+  someDate:Date= new Date(); 
   constructor() { }
 
   ngOnInit() {

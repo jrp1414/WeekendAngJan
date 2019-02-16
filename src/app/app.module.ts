@@ -3,16 +3,21 @@ import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { ProductsComponent } from './products/products.component';
+import { ProductsComponent } from './components/products/products.component';
 
-import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { ShortenPipe } from './pipes/shorten.pipe';
+import { ConvertToPipe } from './pipes/convert-to.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
-    ProductDetailsComponent
-    
+    ProductDetailsComponent,
+    ShortenPipe,
+    ConvertToPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
