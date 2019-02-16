@@ -1,5 +1,6 @@
 <div class="panel">
         <div class="panel-heading">{{pageTitle}}</div>
+        <p appBasicHighlight>Basic Highlight Example</p>
         <ng-content></ng-content>
         <div>
             <button (click)="toggleImage()" class="btn btn-primary">{{showImage?"Hide":"Show" }} Images</button>
@@ -8,8 +9,12 @@
             <div class="col-md-2">Enter Filter Text</div>
             <div class="col-md-2"><input type="text" class="form-control" [(ngModel)]="filterBy" /></div>
             <!-- <div class="col-md-2"><input id="txtFilter" type="text" class="form-control" #filterBy /></div> -->
-            <div class="col-md-2" *ngIf="filterBy; else filterText"><span class="alert alert-info">{{filterBy | uppercase | lowercase }}</span></div>
-            <ng-template #filterText>
+            <ng-template [ngIf]="filterBy">
+                <!-- <div class="col-md-2" *ngIf="filterBy; else filterText"><span class="alert alert-info">{{filterBy | uppercase | lowercase }}</span></div> -->
+                <div class="col-md-2"><span class="alert alert-info">{{filterBy | uppercase | lowercase }}</span></div>
+            </ng-template>
+            
+            <ng-template #filterText [ngIf]="!filterBy">
                 <div class="col-md-2"><span class="alert alert-danger">Enter Some Filter Text</span></div>
             </ng-template>
 

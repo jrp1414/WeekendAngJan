@@ -9,6 +9,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { ShortenPipe } from './pipes/shorten.pipe';
 import { ConvertToPipe } from './pipes/convert-to.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
+import {BasicHighlighter} from "./directives/basic-highlight.directive";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     ProductDetailsComponent,
     ShortenPipe,
     ConvertToPipe,
-    FilterPipe
+    FilterPipe,
+    BasicHighlighter
   ],
   imports: [
     BrowserModule,
