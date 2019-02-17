@@ -10,9 +10,6 @@ export class BasicHighlighter implements OnInit {
     }
     //element:ElementRef;
     constructor(private el:ElementRef) {
-        // this.element = el;
-        
+        // this.element = el;        
     }
-
-
 }

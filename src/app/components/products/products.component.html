@@ -1,6 +1,8 @@
 <div class="panel">
         <div class="panel-heading">{{pageTitle}}</div>
         <p appBasicHighlight>Basic Highlight Example</p>
+        <p [appBetterHighlight]="'yellow'" [highlightColor]="'aqua'">Better Highlight Example</p>
+        <p appAppUnless></p>       
         <ng-content></ng-content>
         <div>
             <button (click)="toggleImage()" class="btn btn-primary">{{showImage?"Hide":"Show" }} Images</button>
@@ -14,9 +16,12 @@
                 <div class="col-md-2"><span class="alert alert-info">{{filterBy | uppercase | lowercase }}</span></div>
             </ng-template>
             
-            <ng-template #filterText [ngIf]="!filterBy">
+            <!-- <ng-template #filterText [ngIf]="!filterBy">
                 <div class="col-md-2"><span class="alert alert-danger">Enter Some Filter Text</span></div>
-            </ng-template>
+            </ng-template> -->
+            <div class="col-md-2" *appUnless="filterBy">
+                <span class="alert alert-danger">Enter Some Filter Text</span>
+            </div>
 
             <!-- <button (click)="SomeMethodCall(filterBy)" class="btn btn-primary">Some Button</button> -->
             <button (click)="SomeMethodCall()" class="btn btn-primary">Some Button</button>
@@ -26,6 +31,6 @@
                     <app-product-details *ngFor="let prod of products | filter:filterBy" class="col-md-6" [productDetails]="prod" (OnProductDetailsClicked)="ParentHandler($event)">
                         <button class="btn btn-danger" (click)="RemoveProduct(i)">Remove</button>
                     </app-product-details>                    
-            </div>            
-        </div> 
+            </div>
+        </div>
     </div>

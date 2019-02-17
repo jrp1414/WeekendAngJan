@@ -1,10 +1,11 @@
 import { Component, ElementRef, ViewChild } from "@angular/core";
 import { Product, ProductConfig } from "../product";
-
+import {LoggingService} from "../../services/logging.service";
 
 @Component({
     selector:"app-products",
-    templateUrl:"./products.component.html"
+    templateUrl:"./products.component.html",
+    providers:[LoggingService]
 })
 export class ProductsComponent {
     Title:string = "Products List";
@@ -15,7 +16,9 @@ export class ProductsComponent {
     filterBy:string='';
 
     @ViewChild('filterBy') txtFilter:ElementRef;
-    constructor(){
+    constructor(private svc:LoggingService){
+console.log("Test");
+
     }
 
     ToggleImages():void{
@@ -45,16 +48,21 @@ export class ProductsComponent {
     }
 
     SomeMethodCall(){ //filterBy:HTMLInputElement
+        // let svc = new LoggingService();
+        // svc.logStatus("Some random Status");
+        this.svc.logStatus("Some random Status");
         // filterBy.value="Some new Text";
         //console.log(this.txtFilter.nativeElement.value);
         //this.filterBy = "Changed";
-        this.products.push(new Product(5
-            ,"CPU",
-             "PC-006",
-             2502.52,
-             4.3,
-             "https://cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Sony-MDR-XB950B1-Black-1_2000x_ede1a7fa-ba5d-4fec-bd96-c15017f8f2e4_2000x.jpg?v=1536753499",
-             new ProductConfig("Others",2012),"Some Description 2"));        
+        
+        
+        // this.products.push(new Product(5
+        //     ,"CPU",
+        //      "PC-006",
+        //      2502.52,
+        //      4.3,
+        //      "https://cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Sony-MDR-XB950B1-Black-1_2000x_ede1a7fa-ba5d-4fec-bd96-c15017f8f2e4_2000x.jpg?v=1536753499",
+        //      new ProductConfig("Others",2012),"Some Description 2"));        
     }
 
     TestFunc(){
