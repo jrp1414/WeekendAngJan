@@ -1,11 +1,11 @@
 import { Component, ElementRef, ViewChild } from "@angular/core";
 import { Product, ProductConfig } from "../product";
-import {LoggingService} from "../../services/logging.service";
+import {LoggingService} from "./../../services/logging.service";
 
 @Component({
     selector:"app-products",
     templateUrl:"./products.component.html",
-    providers:[LoggingService]
+    // providers:[LoggingService]
 })
 export class ProductsComponent {
     Title:string = "Products List";
@@ -50,7 +50,7 @@ console.log("Test");
     SomeMethodCall(){ //filterBy:HTMLInputElement
         // let svc = new LoggingService();
         // svc.logStatus("Some random Status");
-        this.svc.logStatus("Some random Status");
+        this.svc.logStatus("Some random Status - Injected");
         // filterBy.value="Some new Text";
         //console.log(this.txtFilter.nativeElement.value);
         //this.filterBy = "Changed";

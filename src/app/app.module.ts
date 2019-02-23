@@ -12,6 +12,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import {BasicHighlighter} from "./directives/basic-highlight.directive";
 import { BetterHighlightDirective } from './directives/better-highlight.directive';
 import { UnlessDirective } from './directives/app-unless.directive';
+import { LoggingService } from './services/logging.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { UnlessDirective } from './directives/app-unless.directive';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [LoggingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
