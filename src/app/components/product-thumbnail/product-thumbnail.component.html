@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="card-title">
+    <h4>{{product.productName}}</h4>  
+  </div>
+  <div class="card-body">
+    <button (click)="RemoveProduct(product.productId)" class="btn btn-danger btn-md">
+        Remove
+    </button>
+    <img style="height:50px;width: 50px;" [src]="product.imageUrl" *ngIf="showHideFlag"/>
+  </div>
+  
+  
+</div>

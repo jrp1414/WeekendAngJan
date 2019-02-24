@@ -1,13 +1,14 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Product } from '../components/product';
+import { IProduct } from './../services/products-api';
 
 @Pipe({
   name: 'filter',
   //pure:false
 })
 export class FilterPipe implements PipeTransform {
-  filteredProductList:Product[]=[];
-  transform(value: Product[], filterBy:string): any {
+  filteredProductList:IProduct[]=[];
+  transform(value: IProduct[], filterBy:string): any {
     if (filterBy.length<2 ) {
       return value;
     }else if (filterBy.length>=2) {

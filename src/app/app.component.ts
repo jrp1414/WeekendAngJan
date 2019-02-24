@@ -22,10 +22,10 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   ngOnInit(): void {
     //throw new Error("Method not implemented.");
-    console.log("Inside NgOnInit");
+    // console.log("Inside NgOnInit");
   }
   constructor(){
-    console.log("Inside Constructor");
+    // console.log("Inside Constructor");
   }
   title:string="Weekend Angular January";
 }

@@ -13,6 +13,8 @@ import {BasicHighlighter} from "./directives/basic-highlight.directive";
 import { BetterHighlightDirective } from './directives/better-highlight.directive';
 import { UnlessDirective } from './directives/app-unless.directive';
 import { LoggingService } from './services/logging.service';
+import { ProductThumbnailComponent } from './components/product-thumbnail/product-thumbnail.component';
+import { TempProductsComponent } from './components/temp-products/temp-products.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { LoggingService } from './services/logging.service';
     FilterPipe,
     BasicHighlighter,
     BetterHighlightDirective,
-    UnlessDirective
+    UnlessDirective,
+    ProductThumbnailComponent,
+    TempProductsComponent
   ],
   imports: [
     BrowserModule,
