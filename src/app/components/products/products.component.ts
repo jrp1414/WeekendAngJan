@@ -3,6 +3,7 @@ import { Product, ProductConfig } from "../product";
 import {LoggingService} from "./../../services/logging.service";
 import { ProductService } from "./../../services/product.service";
 import { IProduct } from "../../services/products-api";
+import { Router } from "@angular/router";
 
 @Component({
     selector:"app-products",
@@ -32,9 +33,15 @@ export class ProductsComponent implements OnInit{
     products: IProduct[];
 
     @ViewChild('filterBy') txtFilter:ElementRef;
-    constructor(private svc:LoggingService,private productService:ProductService){
+    constructor(private svc:LoggingService,
+        private productService:ProductService,
+        private router:Router){
         
         
+    }
+
+    Redirect(product:IProduct){
+        this.router.navigate(["/product",product.productId]);
     }
 
     ToggleImages():void{

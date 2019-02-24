@@ -1,6 +1,7 @@
 import { Injectable,EventEmitter } from '@angular/core';
 import { LoggingService } from './logging.service';
 import { IProduct, products } from './products-api';
+import { Product } from '../components/product';
 
 
 @Injectable({
@@ -25,6 +26,22 @@ export class ProductService {
     });
 
     this.products = tempProducts.splice(0);
+  }
+
+  // getProductDetails(productId:number):IProduct | {name:string,price:number} | null{
+    getProductDetails(productId:number):IProduct | null{
+    // for (const product of this.products) {
+    //   if (product.productId===productId) {
+    //     return product;
+    //   }
+    // }
+    let result:IProduct;
+    this.products.forEach((prod)=>{
+      if (prod.productId===productId) {
+        result = prod;
+      }
+    })
+    return result?result:null;
   }
 
 }

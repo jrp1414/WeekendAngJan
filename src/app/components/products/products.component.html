@@ -1,6 +1,7 @@
 <div class="panel">
         <div>
             <button (click)="ToggleImages()" class="btn btn-primary">{{showImage?"Hide":"Show" }} Images</button>
+            <a [routerLink]="'\products'">Reload Page</a>
         </div>
         <div class="row">
             <div class="col-md-2">Enter Filter Text</div>
@@ -15,7 +16,7 @@
         <div class="panel-body">
             <div class="row" >                
                 <div class="col-md-3" *ngFor="let product of products" >
-                    <app-product-thumbnail [product]="product" [showHideFlag]="showImage"></app-product-thumbnail>
+                    <app-product-thumbnail (click)="Redirect(product)" [product]="product" [showHideFlag]="showImage"></app-product-thumbnail>
                 </div>
             </div>
         </div>

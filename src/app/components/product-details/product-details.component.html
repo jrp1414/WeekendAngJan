@@ -1,59 +1,15 @@
 <div class="card">
-    
+    <div class="card-title">
+        {{product?.productName}}
+    </div>
     <div class="card-body">
-        <h2 class="card-title">{{product?.productName | uppercase}}</h2>
-        <ng-content></ng-content>   
-        <div class="card-text">
-            <div class="row">
-                <div class="col-md-3">Product Id</div>
-                <div class="col-md-3">{{product?.productId}}</div>
-            </div>
         <div class="row">
-            <div class="col-md-3">Product Code</div>
-            <div class="col-md-3">{{product?.productCode | lowercase | convertTo:'-':' '}}</div>
+            <div class="col-md-3">Proudct Code</div>
+            <div class="col-md-3">{{product?.productCode}}</div>
         </div>
         <div class="row">
-            <div class="col-md-3">Description</div>
-            <div class="col-md-3">{{product?.description | shorten }}</div>
+                <div class="col-md-3">Release Date</div>
+                <div class="col-md-3">{{product?.releaseDate}}</div>
         </div>
-        <div [ngSwitch]="product?.productConfig?.type" class="row">
-            <div class="col-md-3">Price</div>
-            <div class="col-md-3">{{product?.price | currency :'INR':true:"1.1-2"}}</div>
-            <span *ngSwitchCase="'Computer'">Very Good</span>
-            <span *ngSwitchCase="'Furniture'">Good</span>
-            <span *ngSwitchDefault>Bad</span>
-            <!-- <div class="col-md-2" [hidden]="product?.price < 2000" >Too High</div> -->
-        </div>
-        <div class="row">
-            <div class="col-md-3">Rating</div>
-            <div class="col-md-3">{{product?.rating}}</div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">Type</div>
-            <div class="col-md-3">{{product?.productConfig.type}}</div>
-        </div>
-        <!-- <div class="row" [class.red]="product?.productConfig.mfgYear<2016" [class.bold]="product?.productConfig.mfgYear<2016" > -->
-        <!-- <div class="row" [ngClass]="{'red':product?.productConfig.mfgYear<2016,'bold':product?.productConfig.mfgYear<2016}" > -->
-        <!-- <div class="row" [ngClass]="getClass()" > -->
-        <!-- <div class="row" [style.color]="product?.productConfig.mfgYear<2016 ?'red':'green'" > -->
-                <div class="row" style="background-color: aqua;" [ngStyle]="getStyles()" >
-            <div class="col-md-3">Manufacturing Year</div>
-            <div class="col-md-3">{{product?.productConfig.mfgYear}}</div>
-        </div>
-        <!-- <div class="row">
-                <div class="col-md-2">
-                    <img style="width: 50px;height: 50px" 
-                         [src]="product?.image"/></div>
-            </div>                         -->
-    
-            <!-- <button class="btn btn-primary" (click)="ButtonClicked()" >Click Child</button> -->
-            <div class="row" >
-                <div class="col-md-3">Show Date</div>
-                <!-- <div class="col-md-6">{{someDate | date :'d/M/y'}}</div> -->
-                <div class="col-md-6">{{someDate | date :'short'}}</div>
-            </div>
-        </div>
-        
     </div>
-    
-    </div>
+</div>

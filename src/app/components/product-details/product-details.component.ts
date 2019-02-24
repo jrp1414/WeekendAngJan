@@ -1,5 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { Product } from "../product";
+import { ActivatedRoute } from '@angular/router';
+import { ProductService } from 'src/app/services/product.service';
+import { IProduct } from 'src/app/services/products-api';
 
 @Component({
   selector: 'app-product-details',
@@ -8,34 +11,18 @@ import { Product } from "../product";
   // encapsulation:ViewEncapsulation.None
 })
 export class ProductDetailsComponent implements OnInit {
-  @Input('productDetails') product:Product;
-  @Output() OnProductDetailsClicked:EventEmitter<string> = new EventEmitter<string>();
-  
-  someDate:Date= new Date(); 
-  constructor() { }
+  productId:number;
+  product:IProduct;
+  constructor(private route:ActivatedRoute,private productSvc:ProductService) {
+    route.paramMap.subscribe((param)=>{
+      this.productId = +(param.get("id"));
+      this.product = this.productSvc.getProductDetails(this.productId);
+    });
+   }
 
   ngOnInit() {
   }
 
-  ButtonClicked(){
-    
-    this.OnProductDetailsClicked.emit("This Event is raised from "+this.product.productName+" details");
-  }
-
-  getClass():any {
-    if(this.product.productConfig.mfgYear<2016){
-      // return {red:true,bold:true};
-      // return "red bold";
-      return ['red','bold'];
-    }    
-    return [];
-  }
-  getStyles():any{
-    if(this.product.productConfig.mfgYear<2016){
-      return {color:'red','font-weight':'bold'};
-    }
-    return {color:'green'};
-  }
 }
 
 
