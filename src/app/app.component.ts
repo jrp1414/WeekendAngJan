@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+//<test-root></test-root>
+//<div id='fdf' test-root></div>
+//<div class='test-root'></div>
 @Component({
   //selector: 'test-root',
   // selector: '[test-root]',

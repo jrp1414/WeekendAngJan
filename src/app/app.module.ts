@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import {RouterModule} from '@angular/router';
 
 import {
   ProductsComponent,
@@ -23,7 +22,7 @@ import {ShortenPipe,ConvertToPipe,FilterPipe} from "./pipes/pipes.index";
 import { AppComponent } from './app.component';
 import { LoggingService } from './services/logging.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { routes } from './RoutesConfig';
+
 
 @NgModule({
   declarations: [
@@ -44,8 +43,7 @@ import { routes } from './RoutesConfig';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    RouterModule.forRoot(routes)
+    FormsModule
   ],
   providers: [LoggingService],
   bootstrap: [AppComponent]

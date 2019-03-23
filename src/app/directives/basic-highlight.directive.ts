@@ -1,5 +1,5 @@
 import { Directive, ElementRef, OnInit } from "@angular/core";
-
+//<div app-basic-highlight>jfndjnfj</div>
 @Directive({
  selector:"[appBasicHighlight]"   
 })
