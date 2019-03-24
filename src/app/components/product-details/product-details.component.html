@@ -11,5 +11,15 @@
                 <div class="col-md-3">Release Date</div>
                 <div class="col-md-3">{{product?.releaseDate}}</div>
         </div>
+        <div class="row">
+            <div class="col-md-3">
+                <button class="btn btn-primary" (click)="ProductEdit(product.productId)">Edit</button>
+            </div>            
+            <div class="col-md-3">
+                    <button class="btn btn-primary" (click)="Redirect()">Load 100</button>
+            </div>            
+    </div>
+
+    
     </div>
 </div>

@@ -1,35 +1,20 @@
 <div class="panel">
-        <div>
-            <button (click)="ToggleImages()" class="btn btn-primary">{{showImage?"Hide":"Show" }} Images</button>
-            <!-- <a class="nav-link" routerLink="../products">Products</a>     -->
-            <a class="nav-link" 
-            [routerLink]="['/product',products[0].productId]"
-            [queryParams]="{code:products[0].productCode,name:products[0].productName}"
-            [fragment]="'Test'"
-            >Redirect to First Product</a>    
-        </div>
-        <div class="row">
-            <div class="col-md-2">Enter Filter Text</div>
-            <div class="col-md-2"><input type="text" class="form-control" [(ngModel)]="filterBy" /></div>
-            <ng-template [ngIf]="filterBy">
-                <div class="col-md-2"><span class="alert alert-info">{{filterBy | uppercase | lowercase }}</span></div>
-            </ng-template>
-            <div class="col-md-2" *appUnless="filterBy">
-                <span class="alert alert-danger">Enter Some Filter Text</span>
-            </div>            
-        </div>
-        <div class="panel-body">
-            <div class="row" >                
-                <div class="col-md-3" *ngFor="let product of products" >
-                    <app-product-thumbnail (click)="Redirect(product)" [product]="product" [showHideFlag]="showImage"></app-product-thumbnail>
-                </div>
+    <div class="panel-body">
+        <div class="row" >                
+            <div class="col-md-2"  >
+                <ul class="list-group">
+                    <li 
+                        *ngFor="let product of products" 
+                        class="list-group-item">
+                        <a 
+                            [routerLink]="[product.productId]">
+                                {{product.productName}}</a>
+                        </li>                        
+                    </ul>
             </div>
-
-
-            <div class="row" >                
-                <div class="col-md-3">
-                    <button class="btn btn-primary" (click)="ReloadPage()">Reload</button>
-                </div>
+            <div class="col-md-4"  >
+                <router-outlet></router-outlet>
             </div>
         </div>
     </div>
+</div>

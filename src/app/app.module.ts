@@ -8,7 +8,8 @@ import {
   ProductDetailsComponent,
   HeaderComponent, 
   FooterComponent,
-  TempProductsComponent
+  TempProductsComponent,
+  ProductEditComponent
 } from "./components/component.index";
 
 import {
@@ -24,6 +25,7 @@ import { LoggingService } from './services/logging.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AppRoutingModule } from './app.routing.module';
 import { RouterModule } from '@angular/router';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -40,14 +42,17 @@ import { RouterModule } from '@angular/router';
     TempProductsComponent,
     HeaderComponent,
     FooterComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProductEditComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule
   ],
-  providers: [LoggingService],
+  providers: [
+    LoggingService,AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

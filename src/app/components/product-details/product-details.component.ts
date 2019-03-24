@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
 import { IProduct } from 'src/app/services/products-api';
 
@@ -14,15 +14,18 @@ import { IProduct } from 'src/app/services/products-api';
 export class ProductDetailsComponent implements OnInit {
   productId:number;
   product:IProduct;
-  constructor(private productService:ProductService,
+  constructor(
+              private router:Router,
+              private productService:ProductService,
               private route: ActivatedRoute) {
     
    }
 
   ngOnInit() {
     // var productId = parseInt(this.route.snapshot.params["id"]);
-    // var productId = +this.route.snapshot.params["id"];
-    
+    // this.productId = +this.route.snapshot.params["id"];
+    // this.product = this.productService.getProductDetails(this.productId);
+
     // this.route.paramMap.subscribe((params)=>{
     //   this.productId = +params.get("id");
     //   // console.log(this.productId);
@@ -49,6 +52,15 @@ export class ProductDetailsComponent implements OnInit {
     });
 
 
+  }
+
+  ProductEdit(id:number){
+    //localhost:4200/products/5/edit
+    this.router.navigate(["edit"],{relativeTo:this.route});
+  }
+
+  Redirect(){
+    this.router.navigate(["/products",100],{relativeTo:this.route.root})
   }
 
 }

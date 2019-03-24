@@ -5,3 +5,4 @@ export {HeaderComponent} from "./header/header.component";
 export {FooterComponent} from "./footer/footer.component";
 export {TempProductsComponent} from "./temp-products/temp-products.component";
 export {DashboardComponent} from "./dashboard/dashboard.component";
+export {ProductEditComponent} from "./product-edit/product-edit.component";
