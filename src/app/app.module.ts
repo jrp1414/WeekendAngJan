@@ -22,7 +22,8 @@ import {ShortenPipe,ConvertToPipe,FilterPipe} from "./pipes/pipes.index";
 import { AppComponent } from './app.component';
 import { LoggingService } from './services/logging.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-
+import { AppRoutingModule } from './app.routing.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [LoggingService],
   bootstrap: [AppComponent]

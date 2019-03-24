@@ -35,12 +35,12 @@ export class ProductService {
     //     return product;
     //   }
     // }
-    let result:IProduct;
-    this.products.forEach((prod)=>{
-      if (prod.productId===productId) {
-        result = prod;
-      }
-    })
+    
+    let result:IProduct = 
+            // this.products.find((product)=>product.productId===productId);
+            this.products.find(function(product){
+              return product.productId===productId;
+            });
     return result?result:null;
   }
 

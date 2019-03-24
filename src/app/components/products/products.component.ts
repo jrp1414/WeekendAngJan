@@ -3,7 +3,7 @@ import { Product, ProductConfig } from "../product";
 import {LoggingService} from "./../../services/logging.service";
 import { ProductService } from "./../../services/product.service";
 import { IProduct } from "../../services/products-api";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
     selector:"app-products",
@@ -35,13 +35,19 @@ export class ProductsComponent implements OnInit{
     @ViewChild('filterBy') txtFilter:ElementRef;
     constructor(private svc:LoggingService,
         private productService:ProductService,
-        private router:Router){
+        private router:Router,
+        private route:ActivatedRoute){
         
         
     }
 
     Redirect(product:IProduct){
-        this.router.navigate(["/product",product.productId]);
+        this.router.navigate(["product",product.productId],
+                {
+                    queryParams:{code:product.productCode,name:product.productName},
+                    fragment:"FragTest",
+                    relativeTo:this.route.root    
+            }); // localhost:4200/product/1?name=Ram#test
     }
 
     ToggleImages():void{
@@ -91,7 +97,9 @@ export class ProductsComponent implements OnInit{
     TestFunc(){
         console.log('Test');
     }
-
+    ReloadPage(){
+        this.router.navigate(["products"],{relativeTo:this.route});
+    }
     
 }
 

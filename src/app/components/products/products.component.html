@@ -1,7 +1,12 @@
 <div class="panel">
         <div>
             <button (click)="ToggleImages()" class="btn btn-primary">{{showImage?"Hide":"Show" }} Images</button>
-            <a [routerLink]="'\products'">Reload Page</a>
+            <!-- <a class="nav-link" routerLink="../products">Products</a>     -->
+            <a class="nav-link" 
+            [routerLink]="['/product',products[0].productId]"
+            [queryParams]="{code:products[0].productCode,name:products[0].productName}"
+            [fragment]="'Test'"
+            >Redirect to First Product</a>    
         </div>
         <div class="row">
             <div class="col-md-2">Enter Filter Text</div>
@@ -17,6 +22,13 @@
             <div class="row" >                
                 <div class="col-md-3" *ngFor="let product of products" >
                     <app-product-thumbnail (click)="Redirect(product)" [product]="product" [showHideFlag]="showImage"></app-product-thumbnail>
+                </div>
+            </div>
+
+
+            <div class="row" >                
+                <div class="col-md-3">
+                    <button class="btn btn-primary" (click)="ReloadPage()">Reload</button>
                 </div>
             </div>
         </div>
