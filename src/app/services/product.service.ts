@@ -2,6 +2,7 @@ import { Injectable,EventEmitter } from '@angular/core';
 import { LoggingService } from './logging.service';
 import { IProduct, products } from './products-api';
 import { Product } from '../components/product';
+import { Subject } from 'rxjs';
 
 
 @Injectable({
@@ -44,4 +45,5 @@ export class ProductService {
     return result?result:null;
   }
 
+  Activate:Subject<number> = new Subject<number>(); 
 }

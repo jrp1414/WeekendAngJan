@@ -63,6 +63,10 @@ export class ProductDetailsComponent implements OnInit {
     this.router.navigate(["/products",100],{relativeTo:this.route.root})
   }
 
+  ActivateProduct(){
+   this.productService.Activate.next(this.productId); 
+  }
+
 }
 
 
