@@ -2,7 +2,7 @@
         
     <div class="container">
             <a class="navbar-brand" href="\">
-                  Product Manager
+                  Product Manager ....
                 </a>
 <button
 class="navbar-toggler"
@@ -33,12 +33,22 @@ aria-label="Toggle navigation"
 
     <li class="nav-item" 
     [routerLinkActive]="'active'">
+    <a class="nav-link" routerLink="addproduct">Add Product</a>    
+    </li>
+
+    <li class="nav-item" 
+    [routerLinkActive]="'active'">
+    <a class="nav-link" routerLink="user">Add User</a>    
+    </li>
+
+    <!-- <li class="nav-item" 
+    [routerLinkActive]="'active'">
     <a class="nav-link" routerLink="products/1">Product 1 {{product1Activated?'(activated)':''}}</a>    
     </li>
     <li class="nav-item" 
     [routerLinkActive]="'active'">
     <a class="nav-link" routerLink="products/2">Product 2 {{product2Activated?'(activated)':''}}</a>    
-    </li>
+    </li> -->
     <li class="nav-item">
       <button class="btn btn-default" (click)="Login()">Login</button>
     </li>    

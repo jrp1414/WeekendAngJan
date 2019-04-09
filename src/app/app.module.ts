@@ -9,7 +9,9 @@ import {
   HeaderComponent, 
   FooterComponent,
   TempProductsComponent,
-  ProductEditComponent
+  ProductEditComponent,
+  AddProductComponent,
+  UserComponent
 } from "./components/component.index";
 
 import {
@@ -43,7 +45,9 @@ import { AuthService } from './services/auth.service';
     HeaderComponent,
     FooterComponent,
     DashboardComponent,
-    ProductEditComponent
+    ProductEditComponent,
+    AddProductComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,3 +6,5 @@ export {FooterComponent} from "./footer/footer.component";
 export {TempProductsComponent} from "./temp-products/temp-products.component";
 export {DashboardComponent} from "./dashboard/dashboard.component";
 export {ProductEditComponent} from "./product-edit/product-edit.component";
+export {AddProductComponent} from "./add-product/add-product.component";
+export {UserComponent} from "./user/user.component";

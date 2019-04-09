@@ -1,0 +1,29 @@
+<div class="container">
+  <form (ngSubmit)="onUserSubmit(f)" #f="ngForm" class="was-validated" >
+    <div class="form-group">
+      <label for="Name">Name</label>
+      <input 
+          type="text" 
+          #name="ngModel" 
+          required 
+          id="Name"
+          class="form-control is-invalid" 
+          name="Name" ngModel />
+    </div>
+    <!-- <div class="alert alert-info">{{name.className}}</div> -->
+    <ul>
+      <li>Dirty : {{name.dirty}}</li>
+      <li>Pristine: {{name.pristine}}</li>
+      <li>Touched: {{name.touched}}</li>
+      <li>Untouched: {{name.untouched}}</li>
+      <li>Valid: {{name.valid}}</li>
+      <li>Invalid: {{name.invalid}}</li>
+    </ul>
+    <button [disabled]="f.invalid" class="btn btn-primary" type="submit">Save</button>
+  </form>
+
+  
+  <!-- <div class="alert alert-danger">
+    {{f.value | json}}
+  </div> -->
+</div>

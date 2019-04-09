@@ -1,0 +1,138 @@
+<div class="container">
+  <form (ngSubmit)="onProductSubmit()" #frm="ngForm" class="was-validated">
+    <div class="row">
+     <div class="col-md-6">
+        <div class="form-group">
+            <label for="productId">Id</label>
+            <!-- <input 
+            type="number" 
+            required 
+            class="form-control is-validated" 
+            id="productId"
+            #productId="ngModel"
+            name="productId" [ngModel]="prodId"
+            /> --One way data binding example to HTML element -->
+            <!-- <input 
+            type="number" 
+            required 
+            class="form-control is-validated" 
+            id="productId"
+            #productId="ngModel"
+            name="productId" [(ngModel)]="prodId"
+            /> --One way data binding example to HTML element -->
+            <input 
+            type="number" 
+            required 
+            class="form-control is-validated" 
+            id="productId"
+            #productId="ngModel"
+            name="productId" [ngModel]="prodId"
+            (ngModelChange)="prodId=$event"
+            />
+            <div *ngIf="productId.invalid && productId.touched" class="alert alert-danger">Prodict Id is required</div>
+            <div class="alert alert-info">{{prodId}}</div>
+        </div>
+     </div>
+     <div class="col-md-6">
+        <div class="form-group">
+            <label for="productName">Name</label>
+            <input type="text" class="form-control is-validated"
+            #productName="ngModel"
+            required
+            name="productName" id="productName"
+            [ngModel]="prodName"
+            (ngModelChange)="UpdateProductName($event)" 
+            />
+        </div>
+     </div> 
+    </div>
+    <div id="DetailsGroup" ngModelGroup="detailsGroup" #detailsGroup="ngModelGroup">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="productCode">Code</label>
+                    <input type="text" class="form-control"
+                    required
+                    #productCode="ngModel"
+                    name="productCode" ngModel
+                    id="productCode" />
+                </div>            
+            </div>
+            <div class="col-md-6">          
+                <div class="form-group">
+                    <label for="releaseDate">Release Date</label>
+                    <input type="date" required
+                    #releaseDate="ngModel"
+                    name="releaseDate" ngModel
+                    class="form-control" id="releaseDate" />
+                </div>
+            </div> 
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" required 
+                    #description="ngModel"
+                    name="description" ngModel
+                    id="description" rows="3"></textarea>
+                </div>            
+            </div>
+            <div class="col-md-6">          
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" class="form-control"
+                    required 
+                    #price="ngModel"
+                    name="price" ngModel id="price" />
+                </div>
+            </div> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="starRating">Star Rating</label>
+                <select 
+                class="form-control" 
+                required
+                #starRating="ngModel"
+                name="starRating" ngModel
+                >
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>            
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="riskyProduct">Risky Product</label>
+                <input type="radio" name="riskyProduct" value="1" ngModel /> <span>Yes</span>
+                <input type="radio" name="riskyProduct" value="0" ngModel /> <span>No</span>
+            </div>            
+        </div>         
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="emailId">Email Id</label>
+                <input type="email" email class="form-control" id="emailId" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="riskyProduct">Risky Product</label>
+                <input type="checkbox" id="riskyProduct" name="riskyProduct" ngModel />
+            </div>
+        </div>         
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <button class="btn btn-primary" [disabled]="frm.invalid" type="submit">Save</button>
+        </div>         
+    </div>    
+  </form>
+</div>

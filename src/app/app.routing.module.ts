@@ -4,7 +4,9 @@ import {
     DashboardComponent,
     ProductDetailsComponent,
     ProductsComponent,
-    ProductEditComponent
+    ProductEditComponent,
+    AddProductComponent,
+    UserComponent
 } from "./components/component.index";
 import { CanActivate } from "@angular/router/src/utils/preactivation";
 import { AuthGuard } from "./services/auth.guard";
@@ -28,7 +30,9 @@ const routes:Routes = [
                 component:ProductEditComponent,
             }
         ]
-    }
+    },
+    {path:"addproduct",component:AddProductComponent},
+    {path:"user",component:UserComponent},
   ];
 @NgModule({
 imports:[
