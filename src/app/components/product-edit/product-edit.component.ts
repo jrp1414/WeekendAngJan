@@ -22,15 +22,16 @@ export class ProductEditComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((param)=>{
       let id= param["id"];
-      this.product = this.productService.getProductDetails(id);
-      // this.productId = this.product.productId;
-      // this.productName = this.product.productName;
-      // this.productCode = this.product.productCode;
-
-      // let prod = this.productService.getProductDetails(id);
-      // setTimeout(()=>{
-      //   this.frm.setValue(prod);
-      // },1000);   
+      
+      let prod = this.productService.getProductDetails(id);
+      setTimeout(()=>{
+        //this.frm.setValue(prod);
+        // this.frm.form.patchValue(prod);
+        this.frm.form.patchValue({
+          productId:prod.productId,
+          productName:prod.productName
+        });
+      },0);   
     });
   }
 
