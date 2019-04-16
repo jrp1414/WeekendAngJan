@@ -1,5 +1,68 @@
-<p>
-  product-edit works!
-</p>
+<form (ngSubmit)="OnProductSubmit()" #frm="ngForm"> 
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <label for="productId">Product Id</label>
+      <input type="number" required name="productId" class="form-control" [(ngModel)]="product.productId" />
+    </div>
+  </div>
+  <div class="col-md-6">
+    
+<div class="form-group">
+  <label for="productName">Product Name</label>
+  <input type="text" required name="productName" class="form-control" [(ngModel)]="product.productName" />
+</div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <label for="productCode">Product Code</label>
+      <input type="text" required name="productCode" class="form-control" [(ngModel)]="product.productCode" />
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label for="releaseDate">Release Date</label>
+      <input type="text" required name="releaseDate" class="form-control" [(ngModel)]="product.releaseDate" />
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input type="text" required name="description" class="form-control" [(ngModel)]="product.description" />
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="number" required name="price" class="form-control" [(ngModel)]="product.price" />
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <label for="starRating">Star Rating</label>
+      <select class="form-control" name="starRating" [(ngModel)]="product.starRating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label for="emailId">Email Id</label>
+      <input type="email" required name="emailId" class="form-control" [(ngModel)]="product.emailId" />
+    </div>  
+  </div>
+</div>
 
-<button class="btn btn-info" (click)="RedirectBack()">Back</button>
+
+<button class="btn btn-primary">save</button>
+</form>

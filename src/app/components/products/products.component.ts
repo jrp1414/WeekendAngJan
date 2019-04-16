@@ -100,6 +100,8 @@ export class ProductsComponent implements OnInit{
     ReloadPage(){
         this.router.navigate(["products"],{relativeTo:this.route});
     }
+
+    
     
 }
 

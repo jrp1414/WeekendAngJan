@@ -38,10 +38,10 @@ export class ProductService {
     // }
     
     let result:IProduct = 
-            // this.products.find((product)=>product.productId===productId);
-            this.products.find(function(product){
-              return product.productId===productId;
-            });
+            this.products.find((product)=>product.productId==productId);
+            // this.products.find(function(product){
+            //   return product.productId===productId;
+            // });
     return result?result:null;
   }
 

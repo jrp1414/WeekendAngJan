@@ -1,9 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductService } from 'src/app/services/product.service';
-import { IProduct } from 'src/app/services/products-api';
-
+import { ProductService } from "./../../services/product.service";
+import { IProduct } from "../../services/products-api";
 
 @Component({
   selector: 'app-product-details',
