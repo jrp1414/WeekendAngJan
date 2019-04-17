@@ -39,6 +39,6 @@ export class ProductEditComponent implements OnInit {
     this.router.navigate(["/products"]);
   }
   onProductSubmit(form:NgForm){
-
+    console.log(form);
   }
 }

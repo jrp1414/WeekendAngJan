@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user',
@@ -7,13 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
+  signUpForm:FormGroup;
   constructor() { }
 
   ngOnInit() {
+    this.signUpForm = new FormGroup({
+      'firstName':new FormControl("",Validators.required),
+      'userName':new FormControl("",[Validators.required,Validators.minLength(3)]) 
+    });
   }
 
-  onUserSubmit(form:any){
-    console.log(form);
+  onUserSubmit(){
+        console.log(this.signUpForm);
   }
 
 }

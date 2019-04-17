@@ -32,7 +32,7 @@ const routes:Routes = [
         ]
     },
     {path:"addproduct",component:AddProductComponent},
-    {path:"user",component:UserComponent},
+    {path:"signup",component:UserComponent},
   ];
 @NgModule({
 imports:[
