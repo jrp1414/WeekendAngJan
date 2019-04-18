@@ -3,3 +3,7 @@ h2{
     background-color: aquamarine;
 }
 
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+
