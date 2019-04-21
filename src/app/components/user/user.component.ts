@@ -16,14 +16,13 @@ export class UserComponent implements OnInit {
       'firstName':new FormControl("",Validators.required),
       'userName':new FormControl("",[Validators.required,Validators.minLength(3)]),
       'hobbies':new FormArray([new FormControl("",Validators.required)]),
-      'address': new FormGroup({
-        'addLine1':new FormControl("",Validators.required),
-        'city':new FormControl("",Validators.required),
-        'state':new FormControl(""),
-        // 'alternateAddress':new FormGroup({
-        //   addLine1:new FormControl()
-        // })
-      })
+      'addresses': new FormArray([
+        new FormGroup({
+          'addLine1':new FormControl("",Validators.required),
+          'city':new FormControl("",Validators.required),
+          'state':new FormControl("")        
+        })
+      ])
     });
   }
   //{firstName:"vfhbv",lastName:"fdgg",address:{addLine1:"fdf",city:"ff",state:"fs"}}
@@ -32,5 +31,13 @@ export class UserComponent implements OnInit {
   }
   AddHobby(){
     (<FormArray>this.signUpForm.get('hobbies')).push(new FormControl("",Validators.required));
+  }
+
+  AddAddress(){
+    (<FormArray>this.signUpForm.get('addresses')).push(new FormGroup({
+      'addLine1':new FormControl("",Validators.required),
+      'city':new FormControl("",Validators.required),
+      'state':new FormControl("")        
+    }));
   }
 }

@@ -20,28 +20,24 @@
       <input type="text" *ngFor="let hobby of signUpForm.get('hobbies').controls;let i=index" class="form-control" placeholder="Enter Hobby" [formControlName]="i" />
             
     </div>
-
-
-    <div formGroupName="address">
-      <div class="form-group">
-        <label for="addLine1">Address Line 1</label>
-        <input type="text" class="form-control" id="addLine1" placeholder="Enter Address Line 1" formControlName="addLine1" />
-        <span
-            *ngIf="signUpForm.get('address.addLine1').invalid && signUpForm.get('address.addLine1').touched"
-       >Address Line 1 is a required Field</span>              
-      </div>
-      <div class="form-group">
-        <label for="city">City</label>
-        <input type="text" class="form-control" id="city" placeholder="Enter City" formControlName="city" />
-        <span
-            *ngIf="signUpForm.get('address.city').invalid && signUpForm.get('address.city').touched"
-       >Address Line 1 is a required Field</span>                            
-      </div>
-      <div class="form-group">
-        <label for="state">State</label>
-        <input type="text" class="form-control" id="state" placeholder="Enter State" formControlName="state" />              
+    <div formArrayName="addresses">
+      <div class="card" [formGroupName]="i" *ngFor="let hobby of signUpForm.get('addresses').controls;let i=index">
+        <div class="form-group">
+          <label for="addLine1">Address Line 1</label>
+          <input type="text" class="form-control" id="addLine1" placeholder="Enter Address Line 1" formControlName="addLine1" />
+          </div>
+        <div class="form-group">
+          <label for="city">City</label>
+          <input type="text" class="form-control" id="city" placeholder="Enter City" formControlName="city" />
+          </div>
+        <div class="form-group">
+          <label for="state">State</label>
+          <input type="text" class="form-control" id="state" placeholder="Enter State" formControlName="state" />              
+        </div>
       </div>
     </div>
+    <button class="btn btn-default" (click)="AddAddress()" >Add New Address</button>
+    
 
     <button type="submit" [disabled]="signUpForm.invalid" class="btn btn-primary">Save</button>
   </form>
