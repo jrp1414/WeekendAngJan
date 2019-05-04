@@ -8,3 +8,4 @@ export {DashboardComponent} from "./dashboard/dashboard.component";
 export {ProductEditComponent} from "./product-edit/product-edit.component";
 export {AddProductComponent} from "./add-product/add-product.component";
 export {UserComponent} from "./user/user.component";
+export {ProductCatagoriesComponent} from "./product-catagories/product-catagories.component";

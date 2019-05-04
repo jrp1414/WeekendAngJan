@@ -6,11 +6,14 @@ import {
     ProductsComponent,
     ProductEditComponent,
     AddProductComponent,
-    UserComponent
+    UserComponent,
+    ProductCatagoriesComponent
 } from "./components/component.index";
 import { CanActivate } from "@angular/router/src/utils/preactivation";
 import { AuthGuard } from "./services/auth.guard";
 import { ProductGuard } from "./services/product.guard";
+import { SignUpDeactivateGuard } from "./services/signup-deactivate.guard";
+
 
 
 const routes:Routes = [
@@ -32,7 +35,12 @@ const routes:Routes = [
         ]
     },
     {path:"addproduct",component:AddProductComponent},
-    {path:"signup",component:UserComponent},
+    {
+        path:"signup",
+        component:UserComponent,
+        canDeactivate:[SignUpDeactivateGuard]
+    },
+    {path:"productCatagory",component:ProductCatagoriesComponent}
   ];
 @NgModule({
 imports:[

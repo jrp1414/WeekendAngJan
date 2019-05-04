@@ -11,7 +11,8 @@ import {
   TempProductsComponent,
   ProductEditComponent,
   AddProductComponent,
-  UserComponent
+  UserComponent,
+  ProductCatagoriesComponent
 } from "./components/component.index";
 
 import {
@@ -48,6 +49,7 @@ import { AuthService } from './services/auth.service';
     ProductEditComponent,
     AddProductComponent,
     UserComponent,
+    ProductCatagoriesComponent
   ],
   imports: [
     BrowserModule,

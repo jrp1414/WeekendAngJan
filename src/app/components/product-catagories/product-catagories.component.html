@@ -1,0 +1,20 @@
+<form (ngSubmit)="Save()" [formGroup]="prodCatagoryForm">
+  <div class="form-group">
+    <label for="catagoryName">Catagory Name</label>
+    <input type="text" class="form-control" formControlName="catagoryName" id="catagoryName" />
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea formControlName="description" class="form-control" id="description"></textarea>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary" (click)="AddTag()">Add Tag</button>
+  </div>
+  <div formArrayName="tags" >
+    <div class="form-group" *ngFor="let tag of prodCatagoryForm.get('tags').controls;let i=index;" >
+      <label >Tag</label>
+      <input type="text" class="form-control" [formControlName]="i" />
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Save</button>
+</form>

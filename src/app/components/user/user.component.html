@@ -14,6 +14,46 @@
             *ngIf="signUpForm.get('userName').invalid && signUpForm.get('userName').touched"
        >User Name is a required Field</span>      
     </div>
+    <div class="form-group">
+      <label for="rating">Rating</label>
+      <input type="number" class="form-control" placeholder="Enter Rating" formControlName="rating" />
+      <span
+            *ngIf="signUpForm.controls.rating.errors?.range && signUpForm.controls.rating.touched"
+       >Rating must be between 1 and 5</span>     
+    </div>
+    <div formGroupName="emailGroup">
+      <div class="form-group">
+        <label for="emailId">Email Id</label>
+        <input type="email" class="form-control" placeholder="Enter Email Id" formControlName="emailId" />
+        <span *ngIf="emailMessage.length > 0" >{{emailMessage}}</span>               
+      </div>
+      <div class="form-group">
+        <label for="confirmEmailId">Confirm Email Id</label>
+        <input type="email" class="form-control" placeholder="Confirm Email Id" formControlName="confirmEmailId" />
+        <span
+              *ngIf="signUpForm.get('emailGroup.confirmEmailId').errors?.required && signUpForm.get('emailGroup.confirmEmailId').touched"
+         >Email Id is required</span>
+         <span
+              *ngIf="signUpForm.get('emailGroup.confirmEmailId').errors?.email && signUpForm.get('emailGroup.confirmEmailId').touched"
+         >Invalid Email Id</span>
+         <span *ngIf="signUpForm.get('emailGroup').errors?.emailMatch" >Both Email Ids not matching</span>      
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="mobileNo">Mobile No</label>
+      <input type="text" class="form-control" placeholder="Enter Mobile No" formControlName="mobileNo" />      
+      <span
+            *ngIf="signUpForm.controls.mobileNo.errors?.required && signUpForm.controls.mobileNo.touched"
+       >Mobile No is required</span>
+    </div>
+    <div class="form-group">
+      <label for="mobileNo">Notification Via &nbsp;</label>
+      <!-- <input type="radio" (click)="SetNotificationValidation('email')" formControlName="notification" value="email" /> <span>&nbsp; Email</span>
+      <input type="radio" (click)="SetNotificationValidation('phone')" formControlName="notification" value="phone" /> <span>&nbsp; Mobile No</span> -->
+      <input type="radio" formControlName="notification" value="email" /> <span>&nbsp; Email</span>
+      <input type="radio" formControlName="notification" value="phone" /> <span>&nbsp; Mobile No</span>
+
+    </div>
     <button class="btn btn-default" (click)="AddHobby()" >Add Hobby</button>
     <div class="form-group" formArrayName="hobbies">
       <label for="hobbies">Hobby</label>
@@ -39,6 +79,6 @@
     <button class="btn btn-default" (click)="AddAddress()" >Add New Address</button>
     
 
-    <button type="submit" [disabled]="signUpForm.invalid" class="btn btn-primary">Save</button>
+    <button type="submit" class="btn btn-primary">Save</button>
   </form>
 </div>
