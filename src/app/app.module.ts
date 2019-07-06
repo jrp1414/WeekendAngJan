@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import {HttpModule, Http} from "@angular/http";
 
 import {
   ProductsComponent,
@@ -55,10 +56,12 @@ import { AuthService } from './services/auth.service';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule
   ],
   providers: [
-    LoggingService,AuthService
+    LoggingService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

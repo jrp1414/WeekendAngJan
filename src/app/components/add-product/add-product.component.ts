@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-add-product',
@@ -12,7 +13,7 @@ export class AddProductComponent implements OnInit {
   prodName:string='';
 
   @ViewChild('frm') frm:NgForm;
-  constructor() { }
+  constructor(private http:Http) { }
 
   ngOnInit() {
   }
